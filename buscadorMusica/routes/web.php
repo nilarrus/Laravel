@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'controllerMusic@index');
+Route::post('/', 'controllerMusic@buscador');
+
+Route::get('/local','controllerMusic@indLoc');

@@ -24,5 +24,4 @@ class CatalogController extends Controller
 
 
     
-
 }
