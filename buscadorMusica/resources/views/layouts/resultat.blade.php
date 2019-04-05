@@ -1,17 +1,38 @@
 @extends('view1')
 @section('content')
-<h2>Resultats</h2>
+
 @php
     //var_dump($dades);
     $countRespuesta = sizeof($dades);
 @endphp
-@for ($i = 0; $i < $countRespuesta; $i++)
-    <div>
-        ID->{{$dades[$i]["id"]}} 
-        Name->{{$dades[$i]["name"]}}
-            
-         @if(isset($dades[$i]["country"]))
-            Country->{{$dades[$i]["country"]}}</div>
-        @endif
-@endfor
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Country
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for ($i = 0; $i < $countRespuesta; $i++)
+            <tr>
+                <th>{{$dades[$i]["id"]}} </th>
+                <th>{{$dades[$i]["name"]}} </th>
+                    
+                 @if(isset($dades[$i]["country"]))
+                    <th>{{$dades[$i]["country"]}}</th>
+                @else
+                    <th></th>
+                @endif
+            </tr>
+        @endfor
+    </tbody>
+</table>
+
 @stop

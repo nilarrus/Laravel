@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\artist;
+use DB;
 
 class controllerMusic extends Controller
 {
     public function indLoc()
     {
-        return view('localview');
+        $artistas =DB::table('artists')->get();
+        return view('layouts.bbdd',array('dades'=>$artistas));
     }
     public function index()
     {

@@ -16,7 +16,7 @@ class artistas extends Seeder
         $this->command->info('Tabla artistas iniciada con datos');
     }
     private function seedArtistas(){
-        DB::table('artist')->delete();
+        DB::table('artists')->delete();
         self::crearArtistas();
 
     }

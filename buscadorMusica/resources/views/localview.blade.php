@@ -4,47 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Buscador</title>
 </head>
-@php
-    $id = "John";
-    
-    $url = "http://musicbrainz.org/ws/2/artist?query=".$id;
-    
-    $c = curl_init( $url );
-    
-
-    curl_setopt($c, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Accept:application/json','User-Agent:Laravel/5.7'));
-
-    curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
-    
-
-    $res = curl_exec($c);
-    
-
-    $dades = json_decode($res,true);
-    
-    $dadesFinals = $dades["artists"];
-   
-
-@endphp
 <body>
     <div class="container">
-        <div class="row">
-            @php
-              //var_dump(count($dades));
-              //var_dump($dadesFinals);
-              for ($i=0; $i <count($dadesFinals); $i++) { 
-                  //var_dump($dadesFinals[$i]);
-                echo $dadesFinals[$i]["id"]."</br>";
-                echo $dadesFinals[$i]["type"]."</br>";
-                echo $dadesFinals[$i]["name"]."</br>";
-                echo $dadesFinals[$i]["area"]["name"]."</br>";
-                echo "<hr>";
-              }
-            
-           @endphp
-        </div>
+        <a class="btn btn-primary" href="/" role="button"><--</a>
+        <h2>Datos</h2>
+        @yield('content2')
     </div>
 </body>
 </html>
